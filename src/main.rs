@@ -1,6 +1,7 @@
 use std::{env, fs};
 
 mod jit;
+mod ast;
 mod interpret;
 
 // just making sure the code provided is valid
@@ -48,5 +49,6 @@ fn main() {
     let unsanitized_code = fs::read_to_string(path).unwrap();
     let code = sanitize(&unsanitized_code);
 
-    jit::compile(code);
+    // interpret::interpret(&code);
+    jit::jit_compile(code);
 }
