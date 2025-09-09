@@ -1,6 +1,11 @@
+#![allow(unused)]
 use std::{arch::asm, collections::HashMap, io::Write};
 
-use crate::try_input;
+fn try_input() -> u8 {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+    return (input.chars().nth(0).unwrap())as u8;
+}
 
 fn get_jump_table(code: &Vec<char>) -> HashMap<usize, usize> {
     let mut jump_table = HashMap::new();

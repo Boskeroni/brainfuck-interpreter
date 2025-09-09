@@ -1,7 +1,7 @@
 use std::{mem, ptr};
 use libc::*;
 
-use crate::ast::{self, Tokens};
+use crate::tokenize::{self, Tokens};
 
 // for now just handle each keyword as its own instruction
 // eventually move onto optimizing it
@@ -80,7 +80,7 @@ fn compile(tokens: Vec<Tokens>) -> Vec<u8> {
 }
 
 pub fn jit_compile(src: Vec<char>) {
-    let ast = ast::tokenize(src);
+    let ast = tokenize::tokenize(src);
     println!("{ast:?}");
     let code = compile(ast);
     let size = code.len();

@@ -1,7 +1,7 @@
 use std::{env, fs};
 
 mod jit;
-mod ast;
+mod tokenize;
 mod interpret;
 
 // just making sure the code provided is valid
@@ -35,12 +35,6 @@ fn sanitize(code: &str) -> Vec<char> {
     }
 
     return sanitized;
-}
-
-fn try_input() -> u8 {
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).unwrap();
-    return (input.chars().nth(0).unwrap())as u8;
 }
 
 fn main() {
