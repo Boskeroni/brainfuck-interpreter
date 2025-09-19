@@ -1,8 +1,7 @@
 use std::{env, fs};
 
 mod jit;
-mod tokenize;
-mod interpret;
+mod backends;
 
 // just making sure the code provided is valid
 fn sanitize(code: &str) -> Vec<char> {
